@@ -3,10 +3,11 @@
 <head>
     <meta http-equiv="Content-Type"
           content="text/html" charset="UTF-8">
-    <title>Главная - Доска объявлений</title>
+    <title>{{ current_rubric.name }} - Доска объявлений</title>
 </head>
 <body>
     <h1>Объявления</h1>
+    <h2>Рубрика: {{ current_rubric.name }}</h2>
     <div>
         <a href="{% url 'index' %}">Главная</a>
         <a href="{% url 'add' %}">Добавить</a>
@@ -18,7 +19,6 @@
     <div>
         <h2>{{ bb.title }}</h2>
         <p>{{ bb.content }}</p>
-        <p><a href="/bboard/{{ bb.rubric.pk }}">{{ bb.rubric.name }}</a></p>
         <P>{{ bb.published|date:"d.m.Y H:i:s" }}</P>
     </div>
     {% endfor %}
